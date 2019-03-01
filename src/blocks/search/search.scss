@@ -1,0 +1,119 @@
+
+.search {
+  position: relative;
+  width: 20px;
+  overflow: hidden;
+
+  &__glass {
+    position: relative;
+    // transform: translateX(40%);
+    transition: transform 500ms;
+    width: 140px;
+    
+    &__path {
+      fill: none;
+      stroke-dasharray: 210 808;
+      stroke-linecap:round;
+      stroke-width:6;
+      stroke: white;
+      transition: stroke-dasharray 500ms, stroke-dashoffset 500ms;
+    }
+
+    &__x {
+      fill:none;
+      stroke-dasharray: 56 92;
+      stroke-dashoffset: -92px;
+      stroke-linecap:round;
+      stroke-width:6;
+      stroke: white;
+      transition: stroke-dashoffset 500ms;
+      visibility: hidden;
+    }
+  }
+
+  &__overlay {
+    background: rgba(0,0,0,0);
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    transition: background 300ms;
+    z-index: 1;
+
+    &:hover {
+      // background: rgba(0,0,0,0.08);
+    }
+
+    &--overlay-1 {
+      height: 35px;
+      left: -7px;
+      top: -7px;
+      width: 35px;
+    }
+
+    &--overlay-2 {
+      height: 35px;
+      right: 1px;
+      top: -8px;
+      width: 35px;
+    }
+  }
+
+  &__input {
+    display: none;
+    border: 0;
+    z-index: 1;
+    font-size: 17px;
+    line-height: 31px;
+    left: 10px;
+    outline: 0 !important;
+    position: absolute;
+    top: -7px;
+    background: transparent;
+    color: white;
+    // width: 100%;
+    width: 140px;
+    padding-right: 40px;
+  }
+
+  &.active {
+    overflow: visible;
+    width: auto;
+
+    .search {
+      &__input {
+        display: block;
+      }
+
+      &__glass {
+        transform: translateX(-7%);
+  
+        &__path {
+          stroke-dasharray: 580 808;
+          stroke-dashoffset: -224px;
+        }
+  
+        &__x {
+          visibility: visible;
+        }
+      }
+
+      &__overlay {
+        &--overlay-1 {
+          visibility: hidden;
+        }
+      }
+    }
+  }
+
+  &.searching {
+    .search {
+      &__glass__x {
+        stroke-dashoffset: 0;
+      }
+    }
+  }
+}
+.search:not(.active) .search__overlay--overlay-2,
+.search:not(.searching) .search__overlay--overlay-2 {
+  visibility: hidden;
+}

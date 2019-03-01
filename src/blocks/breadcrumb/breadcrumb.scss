@@ -1,0 +1,55 @@
+// В этом файле должны быть стили только для БЭМ-блока breadcrumbs, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Не пишите здесь другие селекторы.
+
+// параметры
+//$breadcrumb-divider: quote(">");
+//$breadcrumb-divider: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPjxwYXRoIGQ9Ik0yLjUgMEwxIDEuNSAzLjUgNCAxIDYuNSAyLjUgOGw0LTQtNC00eiIgZmlsbD0iY3VycmVudENvbG9yIi8+PC9zdmc+);
+//$breadcrumb-divider: none;
+
+$breadcrumb-divider: quote("&#8594;");
+
+.breadcrumb {
+  $block-name: &;
+  background-color: transparent;
+  padding: 0;
+  font-size: 14px;
+  margin-bottom: 13px;
+
+  @media(min-width: $screen-lg){
+    margin-bottom: 24px;
+  }
+
+  &-item {
+    & + & {
+      padding-left: 3px;
+
+      &:before {
+        content: '→';
+        font-size: 11px;
+        padding-right: 3px;
+        color: #6c757d;
+      }
+    }
+
+    a {
+      color: #666666;
+
+      &:hover, &:focus {
+        text-decoration: none;
+      }
+    }
+
+    &.active {
+      color: #666666;
+    }
+  }
+}
+
+nav[aria-label="breadcrumb"] {
+  //display: none;
+
+  @media(min-width: $screen-lg+1){
+    //display: block;
+  }
+}

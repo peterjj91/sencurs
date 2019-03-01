@@ -1,0 +1,21 @@
+// В этом файле должны быть стили только для БЭМ-блока logo, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Не пишите здесь другие селекторы.
+
+.logo {
+  //background-image: url(../img/logo.png);
+  background-image: url(../img/logo-2x.png);
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  width: 91px;
+  height: 79px;
+
+  @media(max-width: $screen-lg){
+
+  }
+
+  @media(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    //background-image: url(../img/logo-2x.png);
+  }
+}

@@ -1,0 +1,14 @@
+// В этом файле должны быть стили для БЭМ-блока fonts, его элементов, 
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+@font-face {
+	font-family: 'BebasNeue-Bold';
+	src: url('../fonts/BebasNeue-Bold.eot');
+	src: local('☺'), url('../fonts/BebasNeue-Bold.woff') format('woff'), url('../fonts/BebasNeue-Bold.ttf') format('truetype'), url('../fonts/BebasNeue-Bold.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+// @import url("../../node_modules/font-awesome/scss/font-awesome.scss");
+// @import "scss/fontawesome.scss"

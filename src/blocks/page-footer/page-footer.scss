@@ -1,0 +1,35 @@
+// В этом файле должны быть стили только для БЭМ-блока page-header, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Не пишите здесь другие селекторы.
+
+.page-footer {
+  $block-name: &;
+
+  @media(min-width: $screen-lg) {
+
+  }
+
+  &__inner {
+    position: relative;
+    display: block;
+    height: 100%;
+
+    @media (min-width: $screen-lg) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    padding: 0px 0px 0px 0px;
+    position: relative;
+
+    @media(min-width: $screen-xl){
+
+    }
+    @media(min-width: $screen-lg){
+
+    }
+  }
+}

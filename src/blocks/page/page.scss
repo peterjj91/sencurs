@@ -1,0 +1,142 @@
+
+// Make viewport responsive
+// http://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/
+
+// ------------- MIXINS ------------- //
+@mixin transition($time, $property: all, $easing: ease-in) {
+  transition: $property $time $easing;
+}
+
+// ------------- VARIABLES ------------- //
+$parallax-offset: 30vh;
+$content-offset: 40vh;
+$transition-speed: 1.2s;
+$slide-number: 3;
+
+html, body {
+  overflow: hidden;
+}
+
+.page {
+  &__inner {
+    
+  }
+
+  &__section {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    overflow: hidden;
+    will-change: transform;
+    backface-visibility: hidden;
+    height: 100vh + $parallax-offset;
+    position: fixed;
+    width: 100%;
+    transform: translateY($parallax-offset);
+    @include transition($transition-speed, all, cubic-bezier(0.22, 0.44, 0, 1));
+  
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,.3);
+    }
+    &:first-child {
+      // background-image: url(https://i.postimg.cc/kXq9Qmnj/bgd1.jpg);
+      transform: translateY(-$parallax-offset / 2);
+
+      .page__wrapper {
+        transform: translateY($parallax-offset /2);
+      }
+    }
+    &:nth-child(2) {
+      background-image: url(https://i.postimg.cc/W14vywqg/photo-1424746219973-8fe3bd07d8e3.jpg);
+    }
+    &:nth-child(3) {
+      background-image: url(https://i.postimg.cc/TY0xQ41T/photo-1433840496881-cbd845929862.jpg);
+    }
+
+    &--one {
+      &.down-scroll {
+        .main-nav {
+          // transform: translateY(100%);
+        }
+
+        + .page__section--two {
+          .accordion-group__main__header {
+            // transform: translate(-50%, -50%);
+            // top: 50%;
+          }
+        }
+      }
+    }
+
+    &--two {
+      &.up-scroll {
+        
+      }
+    }
+  }
+
+  &__wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-flow: column nowrap;
+    color: #fff;
+    text-transform: uppercase;
+    transform: translateY($content-offset);
+    will-change: transform;
+    backface-visibility: hidden;
+    @include transition($transition-speed + .5, all, cubic-bezier(0.22, 0.44, 0, 1));
+  }
+
+  &__title {
+    font-size: 12vh;
+    line-height: normal;
+  }
+}
+
+/* Set stacking context of slides */
+@for $i from 1 to ($slide-number + 1) {
+  .page__section:nth-child(#{$i}) {
+      z-index: ($slide-number + 1) - $i; 
+  }
+}
+
+// ------------- SET TRANSFORM VALUES ------------- //
+
+.page__section.up-scroll {
+  transform: translate3d(0,-$parallax-offset / 2,0);
+
+  .page__wrapper {
+    transform: translateY($parallax-offset / 2);
+  }
+
+  + .page__section {
+    transform: translate3d(0,$parallax-offset,0);
+
+    .page__wrapper {
+      transform: translateY($parallax-offset);
+    }
+  }
+}
+
+.page__section.down-scroll {
+  transform: translate3d(0,-(100vh + $parallax-offset),0);
+  .page__wrapper {
+    transform: translateY($content-offset);
+  }
+  + .page__section:not(.down-scroll) {
+    transform: translate3d(0,-$parallax-offset / 2,0);
+    .page__wrapper {
+      transform: translateY($parallax-offset / 2);
+    }
+  }
+}
