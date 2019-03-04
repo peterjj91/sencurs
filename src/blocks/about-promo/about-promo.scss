@@ -1,0 +1,45 @@
+
+.about-promo {
+  $block-name: &; // #{$block-name}__element {}
+  height: 100%;
+  padding: 20px 20px;
+  color: #000;
+
+  &__background {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 50%;
+    height: 100%;
+    text-align: right;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    text-align: left;
+  }
+
+  &__content {
+    width: 60%;
+    flex: 0 0 60%;
+    color: #000;
+
+    .head-h1 {
+
+    }
+
+    p {
+      color: #585858;
+      font-size: 14px;
+    }
+  }
+
+  &__news {
+    width: 40%;
+    flex: 0 0 40%;
+  }
+}

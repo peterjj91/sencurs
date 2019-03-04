@@ -6210,7 +6210,9 @@ body {
 .page__section:nth-child(2) {
     background-image: url(https://i.postimg.cc/W14vywqg/photo-1424746219973-8fe3bd07d8e3.jpg); }
 .page__section:nth-child(3) {
-    background-image: url(https://i.postimg.cc/TY0xQ41T/photo-1433840496881-cbd845929862.jpg); }
+    background-color: white; }
+.page__section--three:before {
+    display: none; }
 .page__wrapper {
   height: 100vh;
   display: -webkit-box;
@@ -6271,7 +6273,7 @@ body {
   font-family: "BebasNeue-Bold"; }
 h1, .head-h1 {
   font-weight: 100;
-  font-size: 30px; }
+  font-size: 48px; }
 h2, .head-h2 {
   font-size: 24px;
   font-weight: 100; }
@@ -6390,7 +6392,19 @@ h3, .head-h3 {
   transition: all color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out ease-in;
   transition: all color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out ease-in, -webkit-box-shadow 0.15s ease-in-out ease-in;
   border: none;
-  outline: none; }
+  outline: none !important; }
+.btn-primary {
+    background-color: #bebebe;
+    color: #000; }
+.btn-primary:hover, .btn-primary:focus {
+      background-color: #bebebe;
+      color: #000;
+      text-decoration: none; }
+.btn-primary.active {
+      background-color: #bebebe; }
+.btn-primary:not(:disabled):not(.disabled):active {
+      background-color: #bebebe;
+      color: #000; }
 .control {
   display: block;
   position: relative;
@@ -7078,7 +7092,12 @@ body,
 .accordion-group__main__list.out .accordion-group__main__catalog {
         display: inline-block; }
 .accordion-group__main__content {
-    width: 100%; }
+    width: 100%;
+    position: absolute;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%; }
 .accordion-group__main__header {
     padding: 0px 10px; }
 .accordion-group__main__catalog {
@@ -7179,6 +7198,85 @@ body,
     color: black; }
 .promo-menu.hover > li.active > a:before {
       opacity: 1; }
+.about-promo {
+  height: 100%;
+  padding: 20px 20px;
+  color: #000; }
+.about-promo__background {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 50%;
+    height: 100%;
+    text-align: right; }
+.about-promo__background img {
+      height: 100%; }
+.about-promo__wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    text-align: left; }
+.about-promo__content {
+    width: 60%;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 60%;
+            flex: 0 0 60%;
+    color: #000; }
+.about-promo__content p {
+      color: #585858;
+      font-size: 14px; }
+.about-promo__news {
+    width: 40%;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 40%;
+            flex: 0 0 40%; }
+.post-mini {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  grid-auto-rows: 204px;
+  grid-auto-flow: row dense; }
+.post-mini__item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: relative;
+    text-align: center;
+    padding: 0px 40px;
+    background-color: white; }
+.post-mini__item:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 0; }
+.post-mini__item--big {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 1;
+      grid-row-end: 3; }
+.post-mini__item--big .post-mini__title {
+        font-size: 72px; }
+.post-mini__item--more {
+      grid-column-start: 2;
+      grid-column-end: -1;
+      text-align: left;
+      color: #000; }
+.post-mini__item * {
+      z-index: 1; }
+.post-mini__title {
+    font-size: 30px; }
 @media (min-width: 576px) {
     .container, .page-header__container {
       max-width: 540px; }

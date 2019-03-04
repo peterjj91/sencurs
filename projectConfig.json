@@ -18,7 +18,9 @@
     "promo-badge": [],
     "main-nav": [],
     "accordion": [],
-    "promo-menu": []
+    "promo-menu": [],
+    "about-promo": [],
+    "post-mini": []
   },
   "addCssBefore": [
     "./src/scss/variables.scss",

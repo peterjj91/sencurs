@@ -58,7 +58,8 @@ html, body {
       background-image: url(https://i.postimg.cc/W14vywqg/photo-1424746219973-8fe3bd07d8e3.jpg);
     }
     &:nth-child(3) {
-      background-image: url(https://i.postimg.cc/TY0xQ41T/photo-1433840496881-cbd845929862.jpg);
+      //background-image: url(https://i.postimg.cc/TY0xQ41T/photo-1433840496881-cbd845929862.jpg);
+      background-color: white;
     }
 
     &--one {
@@ -79,6 +80,12 @@ html, body {
     &--two {
       &.up-scroll {
         
+      }
+    }
+
+    &--three {
+      &:before {
+        display: none;
       }
     }
   }

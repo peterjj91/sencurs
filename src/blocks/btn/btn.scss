@@ -22,13 +22,25 @@ $border-radius:               3px !default;
   @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-line-height, $btn-border-radius);
   @include transition($btn-transition);
   border: none;
-  outline: none;
+  outline: none !important;
 
   &-primary {
-
+    background-color: #bebebe;
+    color: #000;
 
     &:hover, &:focus {
+      background-color: #bebebe;
+      color: #000;
+      text-decoration: none;
+    }
 
+    &.active {
+      background-color: #bebebe;
+    }
+
+    &:not(:disabled):not(.disabled):active {
+      background-color: #bebebe;
+      color: #000;
     }
   }
 

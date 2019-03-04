@@ -379,3 +379,10 @@ var navigation = {
 }
 
 navigation.init();
+
+
+$(document).ready(function (){
+    $(".main-nav--promo a").click(function (){
+        $(".page__section--one").addClass("down-scroll");
+    });
+});
